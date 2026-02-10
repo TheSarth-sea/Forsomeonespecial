@@ -1,0 +1,1121 @@
+/* ===== RESET & BASE STYLES ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-pink: #ff4d8d;
+    --secondary-pink: #ff85a2;
+    --light-pink: #ffd6e0;
+    --dark-pink: #e63972;
+    --gold: #ffd700;
+    --white: #fff;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --marathi-brown: #8B4513;
+    --marathi-red: #B22222;
+}
+
+body {
+    font-family: 'Poppins', 'Hind', sans-serif;
+    background: linear-gradient(135deg, #fff0f7 0%, #ffe6f2 50%, #ffeff6 100%);
+    color: #5a3d5c;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Marathi Font Classes */
+.marathi-text {
+    font-family: 'Kalam', 'Hind', cursive;
+    font-weight: 400;
+}
+
+.marathi-title {
+    font-family: 'Kalam', cursive;
+    font-size: 2.5rem;
+    color: var(--marathi-red);
+    margin: 15px 0;
+    text-align: center;
+    animation: marathiGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes marathiGlow {
+    from {
+        text-shadow: 0 0 10px rgba(178, 34, 34, 0.5),
+                     0 0 20px rgba(178, 34, 34, 0.3);
+    }
+    to {
+        text-shadow: 0 0 20px rgba(178, 34, 34, 0.8),
+                     0 0 30px rgba(178, 34, 34, 0.5);
+    }
+}
+
+/* ===== FLOATING HEARTS BACKGROUND ===== */
+.floating-hearts {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.floating-hearts::before,
+.floating-hearts::after {
+    content: "❤️";
+    position: absolute;
+    font-size: 24px;
+    opacity: 0.1;
+    animation: floatHeart 25s linear infinite;
+}
+
+.floating-hearts::before {
+    top: 10%;
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.floating-hearts::after {
+    top: 20%;
+    right: 10%;
+    animation-delay: 5s;
+}
+
+@keyframes floatHeart {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0.1;
+    }
+    10% {
+        opacity: 0.3;
+    }
+    90% {
+        opacity: 0.3;
+    }
+    100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* ===== CONTAINER ===== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* ===== ROMANTIC HEADER ===== */
+.romantic-header {
+    text-align: center;
+    padding: 60px 40px;
+    background: linear-gradient(45deg, rgba(255,255,255,0.95) 0%, rgba(255,214,224,0.95) 100%);
+    border-radius: 30px;
+    box-shadow: 0 20px 40px rgba(255, 77, 141, 0.2);
+    margin-bottom: 50px;
+    position: relative;
+    overflow: hidden;
+    animation: gentleFloat 6s ease-in-out infinite;
+    border: 3px solid var(--marathi-red);
+}
+
+.romantic-header::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: sparkle 20s linear infinite;
+}
+
+@keyframes gentleFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+@keyframes sparkle {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.main-title {
+    font-family: 'Kalam', 'Great Vibes', cursive;
+    font-size: 5.5rem;
+    background: linear-gradient(to right, var(--marathi-red), var(--dark-pink), #ff1493);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 10px;
+    text-shadow: 3px 3px 0 rgba(255, 214, 224, 0.5);
+    animation: titleGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+    from {
+        text-shadow: 0 0 20px rgba(178, 34, 34, 0.5),
+                     0 0 40px rgba(255, 77, 141, 0.3),
+                     3px 3px 0 rgba(255, 214, 224, 0.5);
+    }
+    to {
+        text-shadow: 0 0 30px rgba(178, 34, 34, 0.8),
+                     0 0 60px rgba(255, 77, 141, 0.5),
+                     3px 3px 0 rgba(255, 214, 224, 0.5);
+    }
+}
+
+.subtitle {
+    font-family: 'Sacramento', cursive;
+    font-size: 2.8rem;
+    color: var(--dark-pink);
+    margin-bottom: 10px;
+}
+
+.love-divider {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.love-divider i {
+    font-size: 2.2rem;
+    color: var(--marathi-red);
+    animation: heartbeat 1.5s infinite;
+}
+
+.love-divider i:nth-child(2) { animation-delay: 0.2s; }
+.love-divider i:nth-child(3) { animation-delay: 0.4s; }
+.love-divider i:nth-child(4) { animation-delay: 0.6s; }
+.love-divider i:nth-child(5) { animation-delay: 0.8s; }
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+}
+
+.header-message {
+    font-family: 'Kalam', 'Dancing Script', cursive;
+    font-size: 2.2rem;
+    color: var(--marathi-red);
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 20px;
+    display: inline-block;
+    border-right: 5px solid var(--marathi-red);
+}
+
+.english-translation {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem;
+    color: var(--dark-pink);
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/* ===== MARATHI POEM SECTION ===== */
+.poem-section {
+    margin-bottom: 60px;
+}
+
+.poem-container {
+    background: linear-gradient(145deg, #ffffff, #fff9f5);
+    padding: 60px;
+    border-radius: 30px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    position: relative;
+    border: 2px solid var(--marathi-brown);
+    background-clip: padding-box;
+    animation: poemReveal 2s ease-out;
+}
+
+@keyframes poemReveal {
+    from {
+        opacity: 0;
+        transform: translateY(50px) rotateX(20deg);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) rotateX(0);
+    }
+}
+
+.poem-title {
+    font-family: 'Kalam', cursive;
+    font-size: 3.5rem;
+    color: var(--marathi-red);
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.poem-title::after {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 3px;
+    background: linear-gradient(to right, transparent, var(--marathi-brown), transparent);
+}
+
+.poem-content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.marathi-poem {
+    font-family: 'Kalam', cursive;
+    font-size: 2.2rem;
+    line-height: 1.8;
+    text-align: center;
+    color: var(--marathi-brown);
+    padding: 30px;
+    background: rgba(255, 245, 240, 0.7);
+    border-radius: 20px;
+    border-left: 8px solid var(--marathi-red);
+    animation: poemLine 1s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.marathi-poem p {
+    margin-bottom: 15px;
+    animation: fadeInUp 0.8s forwards;
+}
+
+.marathi-poem p:nth-child(1) { animation-delay: 0.5s; }
+.marathi-poem p:nth-child(2) { animation-delay: 1s; }
+.marathi-poem p:nth-child(3) { animation-delay: 1.5s; }
+.marathi-poem p:nth-child(4) { animation-delay: 2s; }
+
+@keyframes poemLine {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.poem-translation {
+    font-family: 'Caveat', cursive;
+    font-size: 1.8rem;
+    line-height: 1.6;
+    text-align: center;
+    color: #6d4c6d;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    font-style: italic;
+    border-right: 5px solid var(--dark-pink);
+}
+
+.poem-author {
+    text-align: right;
+    font-family: 'Kalam', cursive;
+    font-size: 2.5rem;
+    color: var(--marathi-red);
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 2px dashed var(--marathi-brown);
+}
+
+/* ===== LOVE LETTER SECTION ===== */
+.love-letter-section {
+    margin-bottom: 60px;
+}
+
+.love-letter-container {
+    background: linear-gradient(145deg, #ffffff, #fff5f9);
+    padding: 60px;
+    border-radius: 30px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    position: relative;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    animation: letterReveal 2s ease-out;
+    border-right: 8px solid var(--marathi-red);
+}
+
+.love-letter-container::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    bottom: -2px;
+    left: -2px;
+    background: linear-gradient(45deg, var(--marathi-red), var(--gold), var(--marathi-red));
+    border-radius: 32px;
+    z-index: -1;
+    animation: borderGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes letterReveal {
+    from {
+        opacity: 0;
+        transform: translateY(50px) rotateX(20deg);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) rotateX(0);
+    }
+}
+
+@keyframes borderGlow {
+    0% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
+.letter-title {
+    font-family: 'Kalam', 'Parisienne', cursive;
+    font-size: 4rem;
+    color: var(--marathi-red);
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.letter-title::after {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+    height: 3px;
+    background: linear-gradient(to right, transparent, var(--marathi-brown), transparent);
+}
+
+.letter-content {
+    font-family: 'Kalam', 'Caveat', cursive;
+    font-size: 1.8rem;
+    line-height: 1.8;
+    text-align: right;
+    color: #6d4c6d;
+    margin-bottom: 40px;
+    direction: rtl;
+}
+
+.letter-content p {
+    margin-bottom: 25px;
+    opacity: 0;
+    animation: fadeInUp 1s forwards;
+    text-align: right;
+}
+
+.letter-content p:nth-child(1) { animation-delay: 0.5s; }
+.letter-content p:nth-child(2) { animation-delay: 1s; }
+.letter-content p:nth-child(3) { animation-delay: 1.5s; }
+.letter-content p:nth-child(4) { animation-delay: 2s; }
+.letter-content p:nth-child(5) { animation-delay: 2.5s; }
+.letter-content p:nth-child(6) { animation-delay: 3s; }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
+
+.special-note {
+    font-size: 2.2rem !important;
+    color: var(--marathi-red) !important;
+    font-weight: bold;
+    margin-top: 30px !important;
+    text-align: center !important;
+    font-family: 'Kalam', cursive !important;
+    direction: ltr;
+}
+
+.signature {
+    text-align: left;
+    font-family: 'Kalam', 'Sacramento', cursive;
+    font-size: 3.5rem;
+    color: var(--marathi-red);
+    margin-top: 40px;
+    opacity: 0;
+    animation: fadeIn 2s 4s forwards;
+    direction: ltr;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+/* ===== INSTRUCTIONS ===== */
+.instructions {
+    margin-bottom: 60px;
+}
+
+.instructions-box {
+    background: linear-gradient(135deg, var(--light-pink), #fff);
+    padding: 40px;
+    border-radius: 25px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    border-left: 8px solid var(--marathi-red);
+}
+
+.instructions-box h3 {
+    font-family: 'Kalam', 'Playfair Display', cursive;
+    font-size: 2rem;
+    color: var(--marathi-red);
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.instructions-box p {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    line-height: 1.6;
+    padding-left: 20px;
+    position: relative;
+    font-family: 'Hind', sans-serif;
+}
+
+.instructions-box p::before {
+    content: "•";
+    color: var(--marathi-red);
+    font-size: 1.5rem;
+    position: absolute;
+    left: 0;
+}
+
+.note {
+    font-family: 'Kalam', 'Dancing Script', cursive;
+    font-size: 1.8rem !important;
+    text-align: center;
+    margin-top: 25px !important;
+    padding: 20px !important;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 15px;
+    animation: pulse 2s infinite;
+    color: var(--marathi-red) !important;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* ===== MEMORY GALLERY ===== */
+.gallery-section {
+    margin-bottom: 80px;
+}
+
+.section-title {
+    font-family: 'Kalam', 'Great Vibes', cursive;
+    font-size: 4.5rem;
+    text-align: center;
+    color: var(--marathi-red);
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.section-title::after {
+    content: "💖";
+    position: absolute;
+    right: 15%;
+    top: 0;
+    animation: spin 4s linear infinite;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.4rem;
+    color: var(--marathi-brown);
+    margin-bottom: 40px;
+    font-family: 'Kalam', 'Dancing Script', cursive;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.gallery-controls {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.control-btn {
+    background: linear-gradient(45deg, var(--marathi-red), var(--primary-pink));
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: var(--transition);
+    box-shadow: 0 8px 20px rgba(178, 34, 34, 0.3);
+    font-family: 'Hind', sans-serif;
+    font-weight: 600;
+}
+
+.control-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(178, 34, 34, 0.4);
+    background: linear-gradient(45deg, var(--primary-pink), var(--marathi-red));
+}
+
+.memory-gallery {
+    position: relative;
+    height: 600px;
+    margin-bottom: 40px;
+    perspective: 1000px;
+}
+
+.memory-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    opacity: 0;
+    transform: translateX(100%) scale(0.8);
+    transition: var(--transition);
+    pointer-events: none;
+}
+
+.memory-item.active {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    pointer-events: all;
+}
+
+.photo-frame {
+    flex: 1;
+    height: 100%;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+    transform-style: preserve-3d;
+    transition: var(--transition);
+    border: 5px solid var(--marathi-brown);
+}
+
+.memory-item.active .photo-frame {
+    animation: photoFloat 6s ease-in-out infinite;
+}
+
+@keyframes photoFloat {
+    0%, 100% { transform: translateY(0) rotateX(5deg); }
+    50% { transform: translateY(-20px) rotateX(5deg); }
+}
+
+.memory-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.memory-item.active .memory-photo {
+    transform: scale(1.05);
+}
+
+.memory-description {
+    flex: 1;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 25px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    transform: translateX(50px);
+    opacity: 0;
+    transition: var(--transition);
+    transition-delay: 0.3s;
+    border-right: 5px solid var(--marathi-red);
+}
+
+.memory-item.active .memory-description {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.memory-description h3 {
+    font-family: 'Kalam', 'Playfair Display', cursive;
+    font-size: 2.5rem;
+    color: var(--marathi-red);
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.memory-text {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    color: #6d4c6d;
+    font-family: 'Hind', sans-serif;
+    text-align: right;
+    direction: rtl;
+}
+
+.memory-date {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 2px dashed var(--light-pink);
+    font-style: italic;
+    color: var(--marathi-brown);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2rem;
+    font-family: 'Kalam', cursive;
+    direction: ltr;
+    text-align: left;
+}
+
+.gallery-indicator {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.current-memory {
+    font-family: 'Kalam', 'Dancing Script', cursive;
+    font-size: 2rem;
+    color: var(--marathi-red);
+    display: block;
+    margin-bottom: 20px;
+}
+
+.dots-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: var(--light-pink);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.dot.active {
+    background: var(--marathi-red);
+    transform: scale(1.5);
+}
+
+/* ===== TIMELINE ===== */
+.timeline-section {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 30px;
+    padding: 60px 40px;
+    margin-bottom: 60px;
+    position: relative;
+    overflow: hidden;
+    border: 3px solid var(--marathi-brown);
+}
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, var(--marathi-red), transparent);
+}
+
+.timeline-item {
+    display: flex;
+    margin-bottom: 60px;
+    position: relative;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
+}
+
+.timeline-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.timeline-item:nth-child(odd) {
+    justify-content: flex-start;
+    padding-right: calc(50% + 20px);
+}
+
+.timeline-item:nth-child(even) {
+    justify-content: flex-end;
+    padding-left: calc(50% + 20px);
+}
+
+.timeline-date {
+    position: absolute;
+    top: 0;
+    width: 120px;
+    padding: 10px;
+    background: var(--marathi-red);
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+    font-weight: bold;
+    z-index: 1;
+    font-family: 'Kalam', cursive;
+}
+
+.timeline-item:nth-child(odd) .timeline-date {
+    right: calc(50% - 60px);
+}
+
+.timeline-item:nth-child(even) .timeline-date {
+    left: calc(50% - 60px);
+}
+
+.timeline-content {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    position: relative;
+    border-left: 5px solid var(--marathi-red);
+    width: 100%;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+    border-left: none;
+    border-right: 5px solid var(--marathi-red);
+}
+
+.timeline-content h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--marathi-red);
+    margin-bottom: 15px;
+}
+
+.timeline-content p {
+    color: #6d4c6d;
+    line-height: 1.6;
+}
+
+/* ===== WHATSAPP SURPRISE ===== */
+.surprise-section {
+    margin-bottom: 60px;
+}
+
+.surprise-container {
+    background: linear-gradient(135deg, var(--marathi-red), #ff6b9d);
+    padding: 60px 40px;
+    border-radius: 30px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 20px 40px rgba(178, 34, 34, 0.3);
+    position: relative;
+    overflow: hidden;
+    border: 3px solid var(--gold);
+}
+
+.surprise-container::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: sparkle 15s linear infinite;
+}
+
+.surprise-container h2 {
+    font-family: 'Kalam', 'Great Vibes', cursive;
+    font-size: 4rem;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.surprise-container p {
+    font-size: 1.4rem;
+    margin-bottom: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Hind', sans-serif;
+}
+
+.whatsapp-btn {
+    background: #25D366;
+    color: white;
+    border: none;
+    padding: 20px 50px;
+    border-radius: 50px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    transition: var(--transition);
+    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+    position: relative;
+    z-index: 1;
+    font-family: 'Hind', sans-serif;
+    font-weight: 600;
+}
+
+.whatsapp-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(37, 211, 102, 0.6);
+    background: #128C7E;
+}
+
+.small-note {
+    font-size: 1.1rem !important;
+    margin-top: 30px !important;
+    opacity: 0.9;
+    font-family: 'Kalam', cursive;
+}
+
+/* ===== FOOTER ===== */
+.love-footer {
+    background: linear-gradient(135deg, var(--marathi-brown), var(--marathi-red));
+    color: white;
+    padding: 60px 40px;
+    border-radius: 30px;
+    margin-bottom: 40px;
+    text-align: center;
+    border-top: 5px solid var(--gold);
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.final-message h3 {
+    font-family: 'Kalam', 'Parisienne', cursive;
+    font-size: 3.5rem;
+    margin-bottom: 30px;
+}
+
+.final-message p {
+    font-size: 1.4rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    font-family: 'Hind', sans-serif;
+}
+
+.love-signature {
+    font-family: 'Kalam', 'Sacramento', cursive;
+    font-size: 3rem !important;
+    margin-top: 40px !important;
+    color: var(--gold);
+}
+
+.hearts-animation {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 2.5rem;
+}
+
+.hearts-animation i {
+    animation: floatUp 3s ease-in-out infinite;
+    color: var(--gold);
+}
+
+.hearts-animation i:nth-child(2) { animation-delay: 0.5s; }
+.hearts-animation i:nth-child(3) { animation-delay: 1s; }
+.hearts-animation i:nth-child(4) { animation-delay: 1.5s; }
+.hearts-animation i:nth-child(5) { animation-delay: 2s; }
+
+@keyframes floatUp {
+    0%, 100% { 
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    50% { 
+        transform: translateY(-30px) scale(1.3);
+        opacity: 0.7;
+    }
+}
+
+.marathi-footer-note {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.marathi-footer-note p {
+    font-family: 'Kalam', cursive;
+    font-size: 2rem;
+    color: var(--gold);
+    font-style: italic;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 1024px) {
+    .main-title {
+        font-size: 4.5rem;
+    }
+    
+    .marathi-title {
+        font-size: 2rem;
+    }
+    
+    .memory-gallery {
+        height: 500px;
+    }
+    
+    .memory-item {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .photo-frame {
+        width: 80%;
+        margin: 0 auto;
+    }
+    
+    .memory-description {
+        width: 90%;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .main-title {
+        font-size: 3.5rem;
+    }
+    
+    .marathi-title {
+        font-size: 1.8rem;
+    }
+    
+    .subtitle {
+        font-size: 2.2rem;
+    }
+    
+    .letter-title {
+        font-size: 3rem;
+    }
+    
+    .letter-content {
+        font-size: 1.5rem;
+    }
+    
+    .marathi-poem {
+        font-size: 1.8rem;
+    }
+    
+    .memory-gallery {
+        height: auto;
+    }
+    
+    .memory-item {
+        position: relative;
+        opacity: 0;
+        transform: translateY(50px);
+        flex-direction: column;
+        height: auto;
+        margin-bottom: 40px;
+    }
+    
+    .memory-item.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .photo-frame {
+        width: 100%;
+        height: 300px;
+    }
+    
+    .timeline::before {
+        left: 30px;
+    }
+    
+    .timeline-item {
+        padding-left: 70px !important;
+        padding-right: 0 !important;
+        justify-content: flex-start !important;
+    }
+    
+    .timeline-item:nth-child(odd) .timeline-date,
+    .timeline-item:nth-child(even) .timeline-date {
+        left: 0;
+        right: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 2.8rem;
+    }
+    
+    .marathi-title {
+        font-size: 1.5rem;
+    }
+    
+    .subtitle {
+        font-size: 1.8rem;
+    }
+    
+    .section-title {
+        font-size: 3rem;
+    }
+    
+    .control-btn {
+        padding: 12px 20px;
+        font-size: 1rem;
+    }
+    
+    .whatsapp-btn {
+        padding: 15px 30px;
+        font-size: 1.2rem;
+    }
+    
+    .marathi-poem {
+        font-size: 1.5rem;
+        padding: 20px;
+    }
+    
+    .poem-translation {
+        font-size: 1.4rem;
+        padding: 15px;
+    }
+}
